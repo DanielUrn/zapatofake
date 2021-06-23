@@ -1,6 +1,6 @@
 import app from './app'
 import "./database"
 
-app.listen(3000, () =>{
-    
+app.listen(app.get('port'), () =>{
+    console.log(app.get('port'))
 })
