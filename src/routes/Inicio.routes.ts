@@ -1,8 +1,7 @@
 import {Router} from 'express'
+import * as Index from './Inicio.controller'
 const router = Router()
 
-router.get('/producto', (req,res) =>{
-    res.json('obteniendo vergas')
-})
+router.get('/', Index.getInicio)
 
 export default router;

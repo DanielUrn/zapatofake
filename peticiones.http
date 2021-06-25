@@ -1,0 +1,14 @@
+@dir = http://localhost:3001
+###
+POST {{dir}}/productos
+Content-Type: application/json
+
+{
+    "nombre": "zapato1",
+    "imagen": "1.jpg",
+    "descripcion": "vergacion",
+    "precio": 3
+}
+
+###
+GET {{dir}}/productos
