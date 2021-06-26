@@ -6,7 +6,7 @@ const productoschema = new Schema({
         trim: true
     },
 
-    descirpcion: {
+    descripcion: {
         type: String
     },
 
@@ -14,9 +14,8 @@ const productoschema = new Schema({
         type: Number, required:false,
     },
 
-    imagen: {
-        type: String, required:false,
-        data: Buffer
+    imgpath: {
+        type: String, required:false
     }
 
 }, {
