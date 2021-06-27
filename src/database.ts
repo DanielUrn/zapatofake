@@ -5,7 +5,8 @@ import config from './config';
     try{
         const db = await mongoose.connect(`mongodb://${config.MONGO_HOST}/${config.MONGO_DB}`,{
             useUnifiedTopology: true,
-            useNewUrlParser: true    
+            useNewUrlParser: true ,
+            useFindAndModify:false   
             }
         );
     }catch{

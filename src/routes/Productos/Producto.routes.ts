@@ -11,6 +11,6 @@ router.delete('/productos/:id', Productos.delProducto)
 
 router.post('/productos', multer.single('imagen'), Productos.newProducto)
 
-router.put('/productos/:id', Productos.upProducto)
+router.put('/productos/:id', multer.single('imagen'), Productos.upProducto)
 
 export default router;
