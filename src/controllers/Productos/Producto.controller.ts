@@ -25,7 +25,7 @@ export const newProducto: RequestHandler = async (req, res) => {
         }else{
             try {
                 await fs.unlink(path.resolve(nuevoproducto.imgpath))
-                return res.json('Todo mal')
+                return res.json('Trató de subir un archivo que no era una imagen')
             } catch (error) {
                 return res.json(error);
             }
@@ -33,7 +33,7 @@ export const newProducto: RequestHandler = async (req, res) => {
         }
     }
     else{
-        return res.json('Todo mal')
+        return res.json('Trató de subir un producto sin imagen')
     }
 
 }
@@ -76,7 +76,7 @@ export const upProducto: RequestHandler = async (req, res) => {
                 return res.json(actualizado)
             }catch(error){
                 await fs.unlink(path.resolve(req.file.path))
-                return console.error('Su producto no pudo ser actualizado');
+                return res.json('Su producto no pudo ser actualizado');
                 
             }       
     }else{
