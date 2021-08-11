@@ -4,7 +4,7 @@ import path from 'path'
 import fs from 'fs-extra'
 
 export const newProducto: RequestHandler = async (req, res) => {
-    const {nombre, descripcion, precio} = req.body
+    const {nombre, descripcion, precio,para} = req.body
     
     if(req.file){
         const ext = req.file.mimetype
@@ -12,6 +12,7 @@ export const newProducto: RequestHandler = async (req, res) => {
             nombre:nombre,
             descripcion:descripcion,
             precio:precio,
+            para:para,
             imgpath:req.file.path
         })
         if(ext == ('image/jpeg' || 'image/png')){
@@ -92,4 +93,16 @@ export const delProducto: RequestHandler = async (req, res) => {
     const found = await Producto.findByIdAndDelete(req.params.id)
     await fs.unlink(path.resolve(found.imgpath))
     return res.json(found)
+}
+
+export const woman: RequestHandler = async (req,res) => {
+    const found  = await Producto.find({para: "Dama"})
+    if(found) return res.json(found) 
+    else res.json('Lo sentimos, aún no hay calzado para damas')
+}
+
+export const male: RequestHandler = async (req,res) => {
+    const found  = await Producto.find({para: "Caballero"})
+    if(found) return res.json(found) 
+    else res.json('Lo sentimos, aún no hay calzado para caballeros')
 }

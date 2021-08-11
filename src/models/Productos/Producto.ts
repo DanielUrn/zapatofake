@@ -14,6 +14,10 @@ const productoschema = new Schema({
         type: Number, required:false,
     },
 
+    para: {
+        type: String, required:true
+    },
+
     imgpath: {
         type: String, required:false
     }

@@ -7,6 +7,10 @@ router.get('/productos', Productos.getProductos)
 
 router.get('/productos/:id', Productos.getProducto)
 
+router.get('/woman', Productos.woman)
+
+router.get('/male', Productos.male)
+
 router.delete('/productos/:id', Productos.delProducto)
 
 router.post('/productos', multer.single('imagen'), Productos.newProducto)
